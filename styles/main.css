@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* #region null style */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  :focus,
+  :active {
+    outline: none;
+  }
+  
+  a:focus,
+  a:active {
+    outline: none;
+  }
+  
+  nav,
+  footer,
+  header,
+  aside {
+    display: block;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  input,
+  button,
+  textarea {
+    font-family: inherit;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  input::-ms-clear {
+    display: none;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: none;
+    /* color: inherit; */
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  ul li {
+    list-style: none;
+  }
+  
+  img {
+    vertical-align: top;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: 400;
+  }
+  /* #endregion */
+
+.hidden {
+  display: none;
+}
+
+body, html {
+  overflow: hidden;
+  background-color: #81D1FF;
+  user-select: none;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+}
+
+.cloud {
+  position: fixed;
+  animation-name: cloudMove;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 25s;
+  width: 8vw;
+}
+
+@keyframes cloudMove {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -8vw;
+  }
+}
+
+.game__info {
+  position: fixed;
+  top: 2.5%;
+  left: 1.5%;
+  z-index: 20;
+}
+
+.game__planes {
+  display: flex;
+  gap: 15%;
+}
+
+.game__planes img {
+  width: 2.2vw;
+}
+
+.game__score {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+  background-color: #5858588d;
+  padding: 5px 10px;
+}
+
+.plane {
+  position: fixed;  
+  left: 15%;
+  z-index: 1;
+  transition: transform 1s ease;
+  width: 6.2vw;
+}
+
+.tower {
+  position: fixed;
+  z-index: 5;
+  height: 50%;
+  width: 7vw;
+  background: #A3A3A3;
+  border: hsl(0, 0%, 51%) solid 0.6vw;
+  border-bottom: none;
+  background: url('../images/build-bg.jpg') round;
+  animation-timing-function: linear;
+  animation-duration: 8s;
+  animation-name: towerMove;
+}
+
+@keyframes towerMove {
+    0% {
+      left: 100%;
+    }
+
+    100% {
+      left: -7vw;
+    }
+}
+
+.tower::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  width: 100%;
+  height: 2.3vh;
+  background: url('../images/roof.jpg') round;
+}
+
+.tower--up {
+  transform: rotate(180deg);
+  top: 0;
+}
+
+.tower--down {
+  bottom: 0;
+}
+
+.aerial {
+  position: absolute;
+  top: -10.1vh;
+  left: 50%;
+  transform: translate(-50%);
+  width: 0.5vw;
+  height: 9vh;
+  background-color: #fff;
+}
+
+.aerial::before,
+.aerial::after {
+  content: '';
+  display: inline-block;
+  margin-top: 2vh;
+  width: 0.5vw;
+  height: 2vh;
+  background-color: #585858;
+}
+
+.aerial::after {
+  margin-top: 2vh;
+  height: 1.5vh;
+}
+
+.freedom {
+  position: fixed;
+  bottom: 0;
+  right: 10%;
+  z-index: 5;
+  width: 8vw;
+}
+
+.game__messages {
+  position: fixed;
+  z-index: 15;
+  width: 100%;
+  height: 100%;
+}
+
+.message {
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 22px;
+  color: #fff;
+  padding: 20px;
+  background-color: #5858588d;
+}
+
+@media (max-width: 1600px) {
+  .message {
+    font-size: 20px;
+    padding: 18px;
+  }
+}
