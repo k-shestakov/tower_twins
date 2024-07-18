@@ -228,7 +228,7 @@ function createTowers() {
         
         smoke.style.top = '-90px';
         smoke.classList.add('smoke');
-        smoke.src = '../images/smoke.gif';
+        smoke.src = './images/smoke.gif';
 
         towerWithAerial.append(smoke);
     }
