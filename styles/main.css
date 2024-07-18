@@ -151,7 +151,7 @@ body, html {
 }
 
 .plane {
-  position: fixed;  
+  position: fixed;
   left: 15%;
   z-index: 1;
   transition: transform 1s ease;
@@ -226,11 +226,17 @@ body, html {
   height: 1.5vh;
 }
 
+.smoke {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 15vw;
+}
+
 .freedom {
   position: fixed;
   bottom: 0;
   right: 10%;
-  z-index: 5;
   width: 8vw;
 }
 
@@ -258,3 +264,4 @@ body, html {
     padding: 18px;
   }
 }
+

@@ -23,6 +23,7 @@ let isFalling = true;
 let fallSpeed = 0;
 let angle = 0;
 let towersInterval;
+let addSmoke = false;
 
 const audioScore = new Audio();
 const audioLose = new Audio();
@@ -88,8 +89,6 @@ function checkStatus() {
 function checkCollision() {
     const planeRect = plane.getBoundingClientRect();
     const towers = document.querySelectorAll('.tower');
-
-    if (planeRect)
     
     for (const tower of towers) {
         const towerRect = tower.getBoundingClientRect();
@@ -99,6 +98,7 @@ function checkCollision() {
             planeRect.top < towerRect.bottom &&
             planeRect.bottom > towerRect.top
         ) {
+            addSmoke = true;
             return true;
         }
     }
@@ -168,6 +168,7 @@ function updateState() {
 function updateStateToInitial() {
     planes = 2;
     score = 0;
+    addSmoke = false;
     status = STATUS_GAME.lose;
     gamePlanes[0].src = './images/try-l.png';
     plane.style.transform = `rotate(0deg)`;
@@ -221,6 +222,16 @@ function createTowers() {
 
     tower1.classList.add('tower', 'tower--down');
     tower2.classList.add('tower', 'tower--up');
+
+    if (planes < 2 && addSmoke) {
+        const smoke = document.createElement('img');
+        
+        smoke.style.top = '-90px';
+        smoke.classList.add('smoke');
+        smoke.src = '../images/smoke.gif';
+
+        towerWithAerial.append(smoke);
+    }
 
     gameField.append(tower1);
     gameField.append(tower2);
